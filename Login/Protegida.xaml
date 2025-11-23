@@ -1,12 +1,33 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Login.Protegida"
-             Title="Protegida">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Protegida"
+             BackgroundColor="Aqua">
+    
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="10" Spacing="10">
+        
+        <VerticalStackLayout>
+
+            <Border>
+
+                <Label Text="Area protegida!"
+                       FontSize="40"
+                       HorizontalTextAlignment="Center"
+                       TextColor="AliceBlue"/>
+            </Border>
+            <Border>
+                <Label x:Name="lbl_logado"
+                       FontSize="40"
+                       HorizontalTextAlignment="Center"
+                       TextColor="AliceBlue"/>
+            </Border>
+            
+            <Button Text="Desconectar"
+                    HorizontalOptions="Center"
+                    Clicked="Button_Clicked"/>
+            
+        </VerticalStackLayout>
     </VerticalStackLayout>
+
 </ContentPage>

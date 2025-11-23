@@ -1,9 +1,33 @@
 namespace Login;
 
-public partial class NewPage1 : ContentPage
+public partial class Protegida : ContentPage
 {
-	public NewPage1()
+	public Protegida()
 	{
 		InitializeComponent();
+
+		string? usuario_logado = null;
+
+		Task.Run(async() => 
+		{
+			usuario_logado = await SecureStorage.Default.GetAsync("usuario_logado");
+			lbl_logado.Text = $"Bem-Vindo(a) {usuario_logado}";
+
+
+		} );
 	}
+
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+		bool confirmacao = await DisplayAlert("Tem certeza?", "sair do App?", "Sim", "Não");
+
+		if (confirmacao)
+		{
+			SecureStorage.Default.Remove("usuario_logado");
+			App.Current.MainPage = new Login();
+		}
+
+
+    }
+
 }
