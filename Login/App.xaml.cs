@@ -7,11 +7,23 @@ namespace Login
         public App()
         {
             InitializeComponent();
+
+            MainPage = new AppShell();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            var window = base.CreateWindow(activationState);
+
+            window.Height = 700;
+            window.Width = 400;
+
+            return window;
+
         }
+        
+        
+
+         
     }
 }
